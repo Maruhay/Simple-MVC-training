@@ -4,11 +4,13 @@ header, footer{
 
 header{
     padding: 1rem 0;
+    border-bottom: 1px solid darkgray;
 }
 
 nav ul{
-    background: honeydew;
     list-style: none;
+    background: honeydew;
+    border: 1px solid darkgray;
     border-radius: .25rem;
     margin: 5rem 0;
     padding: 20px;
@@ -22,6 +24,15 @@ main{
     min-height: calc(100vh - 8rem);
 }
 
+.post-card{
+    background: honeydew;
+    border: 1px solid darkgray;
+    border-radius: .25rem;
+    padding: 20px;
+    margin: 0 0 20px 0 ;
+}
+
 footer{
     padding: 1rem 0;
+    border-top: 1px solid darkgray;
 }
