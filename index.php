@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body>
 <?php
 
-include_once 'templates/header.html';
-include_once 'templates/layout.php';
-include_once 'templates/footer.html';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-?>
-</body>
-</html>
+
+use application\core\Router;
+
+spl_autoload_register(function ($class) {
+    $path = str_replace('\\', '/', $class . '.php');
+    if (file_exists($path)) {
+        require_once $path;
+    }
+});
+
+$router = new Router();
+$router->run();

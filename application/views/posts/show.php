@@ -1,10 +1,3 @@
-<?php
-
-//Get .json file with posts
-$json = file_get_contents(dirname(__DIR__, 1) . '/data/posts.json');
-$data = json_decode($json);
-
-?>
 <div class="col-12">
     <h1>
         Posts
@@ -14,9 +7,9 @@ $data = json_decode($json);
 <div class="col-11">
     <?php
 
-    foreach ($data as $post):
-    ?>
-    <div class="post-card">
+    foreach ($posts as $post):
+        ?>
+        <div class="post-card">
             <h2>
                 <?php echo $post->title ?>
             </h2>
@@ -26,7 +19,7 @@ $data = json_decode($json);
             <i>
                 <?php echo $post->author . ', ' . $post->date ?>
             </i>
-    </div>
+        </div>
     <?php
 
     endforeach;
