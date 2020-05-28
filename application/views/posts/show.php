@@ -11,16 +11,16 @@
         ?>
         <div class="post-card">
             <h2>
-                <?php echo $post->title ?>
+                <?php echo $post["title"] ?>
             </h2>
             <p>
-                <?php echo $post->text ?>
+                <?php echo $post["text"] ?>
             </p>
             <i>
-                <?php echo $post->author . ', ' . $post->date ?>
+                <?php echo $post["author"] . ', ' . date('d/m/Y', strtotime($post["date"])) ?>
             </i>
         </div>
-    <?php
+        <?php
 
     endforeach;
 

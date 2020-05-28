@@ -13,6 +13,6 @@ class Json
     public function getPosts($path)
     {
         $data = file_get_contents($path);
-        return json_decode($data);
+        return json_decode($data, true);
     }
 }

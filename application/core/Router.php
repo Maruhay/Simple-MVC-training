@@ -19,27 +19,30 @@ class Router
 
     public function add($route, $params)
     {
+        $route = '#^' . $route . '$#';
         $this->routes[$route] = $params;
     }
 
     public function match()
     {
-        if (empty($_GET['controller']) || empty($_GET['action'])) {
-            return false;
+        $url = trim($_SERVER['REQUEST_URI'], '/');
+        // If site is not in root directory (f.e. localhost/folder), we need to cut host name
+        if ($_SERVER['HTTP_HOST'] === 'localhost') {
+            if (!strpos($url, '/')) {
+                $url = '';
+            } else {
+                $url = substr($url, strpos($url, '/') + 1, strlen($url));
+            }
         }
-        $controller = htmlspecialchars($_GET['controller']);
-        $action = htmlspecialchars($_GET['action']);
         foreach ($this->routes as $route => $params) {
-            if (
-                $controller === $params['controller']
-                && $action === $params['action']
-            ) {
+            if (preg_match($route, $url, $matches)) {
                 $this->params = $params;
                 return true;
             }
         }
         return false;
     }
+
 
     public function run()
     {

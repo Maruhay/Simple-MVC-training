@@ -5,8 +5,8 @@
 </div>
 <br>
 <div class="col-11">
-    <form class="form-group" action="">
-        <input type="text" class="form-control" name="email" placeholder="Enter your e-mail">
+    <form class="form-group" action="account/register" method="post">
+        <input type="email" class="form-control" name="email" placeholder="Enter your e-mail">
         <br>
         <input type="text" class="form-control" name="name" placeholder="Enter your name">
         <br>

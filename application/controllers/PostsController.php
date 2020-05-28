@@ -8,7 +8,7 @@ class PostsController extends Controller
 {
     public function showAction()
     {
-        $posts = $this->model->getPosts('data/posts.json');
+        $posts = $this->model->getPostsFromDb();
         $this->view->render('Posts', $posts);
     }
 }

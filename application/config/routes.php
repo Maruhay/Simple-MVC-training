@@ -13,7 +13,7 @@ return [
         'controller' => 'account',
         'action' => 'register'
     ],
-    'account/show' => [
+    'account/profile' => [
         'controller' => 'account',
         'action' => 'profile'
     ],
