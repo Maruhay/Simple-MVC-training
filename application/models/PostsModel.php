@@ -3,9 +3,18 @@
 namespace application\models;
 
 use application\core\Model;
+use application\db\Post;
 
 class PostsModel extends Model
 {
+    public $post;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->post = new Post();
+    }
+
     public function getPostsFromJson($path)
     {
         $posts = [
@@ -16,9 +25,6 @@ class PostsModel extends Model
 
     public function getPostsFromDb()
     {
-        $posts = [
-            "posts" => $this->db->row('SELECT author, date, title, text FROM smvc_posts')
-        ];
-        return $posts;
+        return $this->post->getAll();
     }
 }

@@ -13,7 +13,7 @@ class AccountController extends Controller
 
     public function registerAction()
     {
-        if (!empty($_POST)) {
+        if (!empty($_POST) && isset($_POST['submit'])) {
             if (!empty($_POST['email']) && !empty($_POST['password-1']) && !empty($_POST['password-2'])) {
                 if ($_POST['password-1'] === $_POST['password-2']) {
                     $params = [
@@ -22,6 +22,7 @@ class AccountController extends Controller
                         'password' => htmlspecialchars($_POST['password-1'])
                     ];
                     $this->model->registerUser($params);
+                    header('Location: login');
                 } else {
                     exit('Passwords musts be equal');
                 }
